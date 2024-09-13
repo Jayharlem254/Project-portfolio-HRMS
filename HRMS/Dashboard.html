@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<div>
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="Dash.png" alt="Company Logo" class="sidebar-logo">
+        </div>
+        <h2>HR Management System</h2>
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#employees">Employees</a></li>
+            <li><a href="#attendance">Attendance</a></li>
+            <li><a href="#payroll">Payroll</a></li>
+            <li><a href="#leave">Leave Management</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#reports">Reports</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div id="dashboard" class="content-section active">
+            <h1>HRMS Dashboard</h1>
+
+            <!-- Overview Section -->
+            <div class="overview">
+                <div class="overview-card">
+                    <h2>Employees</h2>
+                    <p><strong>245</strong> Active Employees</p>
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <div class="overview-card">
+                    <h2>Attendance</h2>
+                    <p><strong>85%</strong> Attendance Today</p>
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+
+                <div class="overview-card">
+                    <h2>Payroll</h2>
+                    <p><strong>$120,000</strong> Monthly Payroll</p>
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+
+                <div class="overview-card">
+                    <h2>Leaves</h2>
+                    <p><strong>32</strong> Employees on Leave</p>
+                    <i class="fas fa-plane"></i>
+                </div>
+            </div>
+
+            <!-- Charts and Graphs Section -->
+            <div class="dashboard-charts">
+                <div class="chart-box">
+                    <h3>Employee Performance</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <h3>Attendance Rate</h3>
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity Section -->
+            <div class="recent-activities">
+                <h3>Recent Activities</h3>
+                <ul>
+                    <li>John Doe updated his profile details.</li>
+                    <li>Jane Smith applied for 2 days leave.</li>
+                    <li>Payroll for August has been processed.</li>
+                    <li>Company meeting scheduled for 15th September.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Employees Section -->
+        <div id="employees" class="content-section">
+            <h1>Employees</h1>
+            <p>Manage employee details, add or update employee information.</p>
+            <button id="addEmployeeBtn">Add Employee</button>
+            <div id="employeeList">
+                <!-- Employee data will be inserted here -->
+            </div>
+
+            <!-- Employee Modal -->
+            <div id="employeeModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Add New Employee</h2>
+                    <form id="addEmployeeForm">
+                        <label for="employeeName">Employee Name</label>
+                        <input type="text" id="employeeName" aria-label="Employee Name" placeholder="Enter employee name" required>
+
+                        <label for="employeePosition">Position</label>
+                        <input type="text" id="employeePosition" aria-label="Employee Position" placeholder="Enter employee position" required>
+
+                        <label for="employeeDepartment">Department</label>
+                        <select id="employeeDepartment" aria-label="Employee Department" required>
+                            <option value="HR">HR</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Development">Development</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Operations">Operations</option>
+                        </select>
+
+                        <label for="employeeEmail">Email</label>
+                        <input type="email" id="employeeEmail" aria-label="Employee Email" placeholder="Enter employee email" required>
+
+                        <label for="employeePhone">Phone Number</label>
+                        <input type="tel" id="employeePhone" aria-label="Employee Phone" placeholder="Enter phone number" required>
+
+                        <button type="submit" class="submit-btn">Add Employee</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attendance Section -->
+        <div id="attendance" class="content-section">
+            <h1>Attendance</h1>
+            <p>View and manage employee attendance records.</p>
+
+            <!-- Date Filter Section -->
+            <div class="attendance-filter">
+                <label for="attendanceDate">Select Date: </label>
+                <input type="date" id="attendanceDate" aria-label="Attendance Date">
+                <button id="filterAttendanceBtn" class="submit-btn">Filter Attendance</button>
+            </div>
+
+            <!-- Attendance Table -->
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Position</th>
+                        <th>Department</th>
+                        <th>Phone Number</th>
+                        <th>Attendance Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="placeholder">
+                        <td colspan="6" style="text-align: center;">No attendance data available. Please select a date or add employee attendance records.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Payroll Section -->
+        <div id="payroll" class="content-section">
+            <h1>Payroll Overview</h1>
+            <div class="overview">
+                <div class="overview-card">
+                    <h2>Total Salaries Paid</h2>
+                    <p><strong>$120,000</strong> this month</p>
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Pending Payments</h2>
+                    <p><strong>$15,000</strong> awaiting approval</p>
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Payroll Errors</h2>
+                    <p><strong>3</strong> payment errors</p>
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-box">
+                    <h3>Salary Distribution</h3>
+                    <canvas id="salaryDistributionChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Payment Status</h3>
+                    <canvas id="paymentStatusChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leave Management Section -->
+        <div id="leave" class="content-section">
+            <h1>Leave Management</h1>
+            <div class="overview">
+                <div class="overview-card">
+                    <h2>Employees on Leave</h2>
+                    <p><strong>32</strong> currently on leave</p>
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Leave Requests</h2>
+                    <p><strong>12</strong> new requests</p>
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Pending Approvals</h2>
+                    <p><strong>8</strong> requests awaiting approval</p>
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-box">
+                    <h3>Leave Status</h3>
+                    <canvas id="leaveStatusChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Leave Types Distribution</h3>
+                    <canvas id="leaveTypesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Tracking Section -->
+        <div id="performance" class="content-section">
+            <h1>Performance Tracking</h1>
+            <div class="overview">
+                <div class="overview-card">
+                    <h2>Top Performers</h2>
+                    <p><strong>5</strong> employees recognized</p>
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Average Rating</h2>
+                    <p><strong>4.2</strong> overall performance</p>
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Low Performers</h2>
+                    <p><strong>3</strong> employees under review</p>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-box">
+                    <h3>Performance Ratings</h3>
+                    <canvas id="performanceRatingsChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Top Performers Trend</h3>
+                    <canvas id="topPerformersTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports and Analytics Section -->
+        <div id="reports" class="content-section">
+            <h1>Reports & Analytics</h1>
+            <div class="overview">
+                <div class="overview-card">
+                    <h2>Generated Reports</h2>
+                    <p><strong>15</strong> this month</p>
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Pending Reports</h2>
+                    <p><strong>5</strong> pending review</p>
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <div class="overview-card">
+                    <h2>Data Insights</h2>
+                    <p><strong>85%</strong> positive employee growth</p>
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-box">
+                    <h3>Employee Growth</h3>
+                    <canvas id="employeeGrowthChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Salary Analytics</h3>
+                    <canvas id="salaryAnalyticsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>
