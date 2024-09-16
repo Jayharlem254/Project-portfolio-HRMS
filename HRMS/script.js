@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         employees.forEach((employee, index) => {
             employeeList.innerHTML += `
                 <div class="employee">
-                   <p><strong>${employee.name}</strong></p>
+                    <p><strong>${employee.name}</strong></p>
                     <p>Position: ${employee.position}</p>
                     <p>Department: ${employee.department}</p>
                     <p>Email: ${employee.email}</p>
@@ -80,6 +80,29 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+    document.getElementById("addEmployeeForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("employeeName").value;
+        const position = document.getElementById("employeePosition").value;
+        const department = document.getElementById("employeeDepartment").value;
+        const email = document.getElementById("employeeEmail").value;
+        const phone = document.getElementById("employeePhone").value;
+
+        // Add the new employee to the employees array
+        employees.push({ name, position, department, email, phone });
+
+        // Re-render the employee list
+        renderEmployeeList();
+
+        // Close the modal
+        modal.style.display = "none";
+
+        // Reset form
+        document.getElementById("addEmployeeForm").reset();
+    });
+
 
     // Attendance Rate Chart
     const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
