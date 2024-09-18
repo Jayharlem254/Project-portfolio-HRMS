@@ -68,15 +68,6 @@ Table of Contents
 - **Google Fonts**: Custom typography for better readability.  
   Optional additions:
 
-<!-- -->
-
-- **Node.js** (for back-end logic if used).
-
-- **Express** (for back-end routing if applicable).
-
-- **MySQL**/ **MongoDB** (for managing employee data in a database if
-  integrated).  
-  **Installation**  
   To run this project locally:
 
 1.  **Clone the repository:** `bash`` `Copy
@@ -163,9 +154,9 @@ Table of Contents
     If you have any questions or suggestions about this project, feel
     free to reach out to the author:
 
-- **Name**: \[Jotham Kilimo\]
+- **Name**: \[Jotham Kilimo and Dawit getu\]
 
-- **Email**: \[applejotham@gmail.com, jothamkilimo321@gmail.com\]
+- **Email**: \[applejotham@gmail.com, jothamkilimo321@gmail.com\,dawitgetu3@gmail.com/]
 
 - **GitHub**:
   [[https://github.com/](https://github.com/your-username)jayharlem254]{.underline}  
