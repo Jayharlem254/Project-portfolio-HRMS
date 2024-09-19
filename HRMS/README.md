@@ -1,23 +1,23 @@
 **HRMS Dashboard**  
 Table of Contents
 
-- [Introduction]{.underline}
+- [Introduction]
 
-- [Features]{.underline}
+- [Features]
 
-- [Technologies Used]{.underline}
+- [Technologies Used]
 
-- [Installation]{.underline}
+- [Installation]
 
-- [Usage]{.underline}
+- [Usage]
 
-- [File Structure]{.underline}
+- [File Structure]
 
-- [Contributing]{.underline}
+- [Contributing]
 
-- [License]{.underline}
+- [License]
 
-- [Contact]{.underline}  
+- [Contact]
     
   **Introduction**  
   The **HRMS Dashboard** is a web-based system designed to help HR
